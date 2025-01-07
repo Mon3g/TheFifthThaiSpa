@@ -1,10 +1,39 @@
-// API Reference: https://www.wix.com/velo/reference/api-overview/introduction
-// “Hello, World!” Example: https://learn-code.wix.com/en/article/hello-world
+import { useEffect } from 'react';
+
+// Theme colors
+const theme = {
+  primary: '#FF1493',    // Pink
+  secondary: '#FFD700',  // Golden Yellow
+  background: '#FFFFFF', // White
+  surface: '#F5F5F5',   // Light Gray
+  text: '#333333'       // Dark Gray for text
+};
 
 $w.onReady(function () {
-    // Write your JavaScript here
+    // Header styling
+    $w('#header').style.backgroundColor = theme.primary;
+    $w('#navigationBar').style.backgroundColor = theme.primary;
+    $w('#navigationBar').style.color = theme.background;
 
-    // To select an element by ID use: $w('#elementID')
+    // Main content
+    $w('#mainContent').style.backgroundColor = theme.background;
+    $w('Text').forEach(text => {
+        text.style.color = theme.text;
+    });
 
-    // Click 'Preview' to run your code
+    // Buttons
+    $w('Button').forEach(button => {
+        button.style.backgroundColor = theme.secondary;
+        button.style.color = theme.text;
+        button.style.borderColor = theme.primary;
+    });
+
+    // Links
+    $w('Link').forEach(link => {
+        link.style.color = theme.primary;
+    });
+
+    // Footer
+    $w('#footer').style.backgroundColor = theme.surface;
+    $w('#footer Text').style.color = theme.text;
 });
